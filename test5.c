@@ -2,29 +2,35 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
-#define BANME 50000000
+#define BANME 100000000
 #define TOKUTEI 10
 #define N 20
 int so[BANME+1];
 
 
 int main(){
-
 	int num,mnum,i,j,cur,cnt=0;
-	long csum=0;
-	long tsum=0;
+	__int64 csum=0;
+	__int64 tsum=0;
 	char *era;
 	time_t a,b;
 	a = time(NULL);
 
 	num = 1049999999;
-	era = malloc((sizeof(char))*num);
+
+	if ((era = malloc((sizeof(char))*num)) == NULL) 
+	{
+		printf("ﾒﾓﾘを確保できませんでした｡\n");
+		exit(0);
+	}
 
 	for(i = 0; i < num; i++){
 		era[i] = 1;
 	}
 	mnum = 32403;
+
 	for(i = 0; i < mnum; i++){
 		if(era[i]){
 			cur = i+i+3;
@@ -33,6 +39,7 @@ int main(){
 			}
 		}
 	}
+
 	so[0]=0;
 	so[1]=2;
 	csum += so[1]%100;
@@ -41,23 +48,23 @@ int main(){
 		if(era[i]){
 			if(cnt==BANME && BANME==TOKUTEI){
 				so[cnt]=i+i+3;
-				csum =csum + so[cnt]%100;
+				csum += so[cnt]%100;
 				printf("特定 %9d番目 : %10d\n",cnt,so[cnt]);
 				tsum = csum;
 				break;
 			}
 			else if(cnt==BANME){
 				so[cnt]=i+i+3;
-				csum =csum + so[cnt]%100;
+				csum += so[cnt]%100;
 				break;
 			}else if(cnt==TOKUTEI){
 				so[cnt]=i+i+3;
-				csum =csum + so[cnt]%100;
+				csum += so[cnt]%100;
 				printf("特定 %9d番目 : %10d\n",cnt,so[cnt]);
 				tsum = csum;
 			}else{
 				so[cnt]=i+i+3;
-				csum =csum + so[cnt]%100;
+				csum += so[cnt]%100;
 			}
 			cnt++;
 		}
@@ -69,7 +76,7 @@ int main(){
 	free(era);
 	b = time(NULL);
 	printf("実行時間：%d秒\n",b - a);
-	printf("特定 %10ld番目までのチェックサム : %d\n",TOKUTEI,tsum);
-	printf("指定 %10ld番目までのチェックサム : %d\n",BANME,csum);
+	printf("特定 %10d番目までのチェックサム : %I64u\n",TOKUTEI,tsum);
+	printf("指定 %10d番目までのチェックサム : %I64u\n",BANME,csum);
 	return 0;
 }
