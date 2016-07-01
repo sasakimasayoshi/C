@@ -1,3 +1,0 @@
-char henkan[] = {"#<dR?VrBmD6FyH>J9ExX*tZoL3+wTCi2cN5ksA7e%h8pG$vPKaMIO@Q&S=UnfgYW"};
-
-char dmymoji[] = {"!014bjlquz"};
