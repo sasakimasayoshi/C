@@ -1,4 +1,4 @@
-//214010 ²X–Ø³‹`
+//214010 ä½ã€…æœ¨æ­£ç¾©
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,18 +29,18 @@ int main() {
 
 	start = clock();
 
-	printf("h28c3gx09 214010 ²X–Ø³‹`\n");
+	printf("h28c3gx09 214010 ä½ã€…æœ¨æ­£ç¾©\n");
 
-	printf("•œ†“ú“ü—Í(yyyy mm dd):");
+	printf("å¾©å·æ—¥å…¥åŠ›(yyyy mm dd):");
 	scanf("%d%d%d",&y,&m,&d);
 
-	if(d%2==0){//‹ô”
+	if(d%2==0){//å¶æ•°
 		hiduke = (y+m*10000+d*1000000);
 		sq=sqrt(hiduke);
 		sq=sqrt(sq);
 		key1=sq*1.18;
 	}
-	else//Šï”
+	else//å¥‡æ•°
 	{
 		hiduke = (y+d*10000+m*1000000);
 		sq=sqrt(hiduke);
@@ -52,9 +52,9 @@ int main() {
 	}
 	
 
-	printf("ˆÃ†•¶“ü—Ístart\n");
+	printf("æš—å·æ–‡å…¥åŠ›start\n");
 	if((fp = fopen("h28c3gx09Fukugo.data", "r")) == NULL ){
-		fprintf(stderr,"“ü—Íƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[\n");
+		fprintf(stderr,"å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -97,11 +97,11 @@ int main() {
 	
 	printf("key1:%d  key2:%d  key3:%d\n",key1,key2,key3);
 
-	printf("‘f”ŒvZstart %d”Ô–Ú‚Ü‚Å\n",key3);
+	printf("ç´ æ•°è¨ˆç®—start %dç•ªç›®ã¾ã§\n",key3);
 
-	sosu(key3);//‘f”ŒÄ‚Ño‚µ
+	sosu(key3);//ç´ æ•°å‘¼ã³å‡ºã—
 
-	printf("•œ†start\n");
+	printf("å¾©å·start\n");
 
 
 	simo2=csum/10;
@@ -153,11 +153,11 @@ int main() {
 		}
 	}
 	
-	printf("Œ´•¶o—Ístart\n");
+	printf("åŸæ–‡å‡ºåŠ›start\n");
 
 	fp1 = fopen( fname, "w" );
 	if( fp1 == NULL ){
-    printf( "%sƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñ\n", fname );
+    printf( "%sãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“\n", fname );
     return -1;
   }
 	for( i=0,j=0; i<26; i++){
@@ -171,14 +171,14 @@ int main() {
 			}
 		}
   }
-	printf("•œ†ˆ—‘S‘ÌF%.3f•b\n",(double)(clock()-start)/(double)CLOCKS_PER_SEC);
+	printf("å¾©å·å‡¦ç†å…¨ä½“ï¼š%.3fç§’\n",(double)(clock()-start)/(double)CLOCKS_PER_SEC);
 
 	fclose(fp);
 	fclose(fp1);
-	printf("h28c2gx09 END");
+	printf("h28c3gx09 END");
 }
 
-//‘f”ŒvZ
+//ç´ æ•°è¨ˆç®—
 int sosu(int s){
 	int num,mnum,i,j,cur,cnt=0;
 	char *era;
@@ -189,7 +189,7 @@ int sosu(int s){
 
 	if ((era = malloc((sizeof(char))*num)) == NULL) 
 	{
-		printf("ÒÓØ‚ğŠm•Û‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½¡\n");
+		printf("ï¾’ï¾“ï¾˜ã‚’ç¢ºä¿ã§ãã¾ã›ã‚“ã§ã—ãŸï½¡\n");
 		exit(0);
 	}
 
@@ -226,9 +226,9 @@ int sosu(int s){
 	}
 
 	free(era);
-	printf("%d”Ô–Ú:%d\n",s,so[cnt]);
-	printf("‘f”ˆ—ŠÔF%.3f•b\n",(double)(clock()-start)/(double)CLOCKS_PER_SEC);
-	printf("‘f”ƒ`ƒFƒbƒNƒTƒ€ : %I64u\n",csum);
+	printf("%dç•ªç›®:%d\n",s,so[cnt]);
+	printf("ç´ æ•°å‡¦ç†æ™‚é–“ï¼š%.3fç§’\n",(double)(clock()-start)/(double)CLOCKS_PER_SEC);
+	printf("ç´ æ•°ãƒã‚§ãƒƒã‚¯ã‚µãƒ  : %I64u\n",csum);
 
 	return 0;
 }
